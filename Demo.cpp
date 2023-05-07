@@ -17,7 +17,7 @@ using namespace ariel;
 
 
 int main() {
-    Fraction a(5,3), b(14,21);
+    Fraction a(5,3), b(14,21),e(-4,5);
     cout << "a: " << a << "b: " << b << endl;
     cout << "a+b" << a+b << endl; 
     cout << "a-b" << a-b << endl; 
@@ -33,5 +33,8 @@ int main() {
     if (a > 1.1) cout << " a is bigger than 1.1" << endl;
     else cout << " a is smaller than 1.1" << endl;
 
-
+    Fraction f;
+    istringstream is("5 -22"); 
+    is>>f;
+    cout<<f<<endl;
 }

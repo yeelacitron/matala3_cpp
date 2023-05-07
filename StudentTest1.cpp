@@ -3,6 +3,7 @@
 #include "sources/Fraction.hpp"
 #include <iostream>
 #include <algorithm> // For __gcd; taken from the internet
+#include <cmath>
 #include <typeinfo> // For typeid(...)
 #include <sstream>
 using namespace ariel;

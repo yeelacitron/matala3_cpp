@@ -1,0 +1,10 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/vboxuser/Documents/Fraction_b'
+clang++-14 -std=c++2a -Werror -g -Wsign-conversion -Isources --compile TestRunner.cpp -o TestRunner.o
+clang++-14 -std=c++2a -Werror -g -Wsign-conversion -Isources --compile StudentTest1.cpp -o StudentTest1.o
+clang++-14 -std=c++2a -Werror -g -Wsign-conversion -Isources TestRunner.o StudentTest1.o objects/Fraction.o -o test1
+ 
+clang++-14 -std=c++2a -Werror -g -Wsign-conversion -Isources --compile StudentTest2.cpp -o StudentTest2.o
+clang++-14 -std=c++2a -Werror -g -Wsign-conversion -Isources TestRunner.o StudentTest2.o objects/Fraction.o -o test2
+make: Leaving directory '/home/vboxuser/Documents/Fraction_b'
+ 
