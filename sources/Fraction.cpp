@@ -34,41 +34,42 @@ using namespace std;
             this->denom= denom/gcd;
         }
     }
-    void Fraction::check_overflow_of_multi(int left, int right) const {
-        if (((left==max_int) && (abs(right)>1) && (right=!0))||((right==max_int) && (abs(left)>1) && (left=!0))) {
-            throw overflow_error("Error: integer overflow detected.");
+    void Fraction::check_overflow(long numerator, long denominator) const {
+        if (numerator > max_int ||
+            numerator < min_int ||
+            denominator > max_int ||
+            denominator < min_int) {
+            throw overflow_error("overflow_ error");
         }
     }
     Fraction Fraction::operator+(const Fraction  &other) const{
-        
-        int up = (this->numer*other.denom)+(other.numer*this->denom);
-        int down= this->denom*other.denom;
-        
-        return Fraction(up,down);
+
+        long numerator = long(this->numer) * other.denom + long(other.numer) * this->denom;
+        long denominator= long(this->denom)*other.denom;
+        check_overflow(numerator,denominator);
+        return Fraction(numerator,denominator);
     }
     Fraction Fraction::operator-(const Fraction  &other) const{
-        int up = (this->numer*other.denom)-(other.numer*this->denom);
-        int down= this->denom*other.denom;
-        
-        return Fraction(up,down);
+        long numerator = long(this->numer)*(other.denom)-long(other.numer)*this->denom;
+        long denominator= long(this->denom)*other.denom;
+        check_overflow(numerator,denominator);
+        return Fraction(numerator,denominator);
     }
     Fraction Fraction::operator*(const Fraction  &other) const{
-        check_overflow_of_multi(this->numer,other.numer);
-        int up =this->numer*other.numer;
-        check_overflow_of_multi(this->denom,other.denom);
-        int down =this->denom*other.denom;
-       
-        Fraction a(up,down);
+        long numerator =long(this->numer)*other.numer;
+        long denominator =long(this->denom)*other.denom;
+       check_overflow(numerator,denominator);
+        Fraction a(numerator,denominator);
         return a;
     }
     Fraction Fraction::operator/(const Fraction  &other) const{
         if(other.numer==0){
             throw runtime_error("can't divide by 0");
         }
-        int up = this->numer*other.denom;
-        int down =this->denom*other.numer;
-        
-        Fraction a(up,down);
+        long numerator = long(this->numer)*other.denom;
+        long denominator =long(this->denom)*other.numer;
+        check_overflow(numerator,denominator);
+        Fraction a(numerator,denominator);
         return a;
     }
     Fraction& Fraction::operator++(){

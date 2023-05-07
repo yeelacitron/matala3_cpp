@@ -11,7 +11,7 @@ namespace ariel{
             int numer;
             int denom;
             void gcd();
-            void check_overflow_of_multi(int numerator, int denominator) const;
+            void check_overflow(long numerator, long denominator) const;
             static const int max_int = std::numeric_limits<int>::max();
             static const int min_int = std::numeric_limits<int>::min();
         public:

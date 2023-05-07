@@ -708,7 +708,7 @@ TEST_SUITE("Input and output operators tests") {
         CHECK_THROWS_AS(ss_floating_point >> frac, std::runtime_error);
     }
 }
-/*
+
 
 TEST_CASE("Fraction with largest possible numerator and/or denominator and overflow handling") {
     int max_int = std::numeric_limits<int>::max();
@@ -754,4 +754,4 @@ TEST_CASE("Fraction with largest possible numerator and/or denominator and overf
     CHECK_NOTHROW(f5 + Fraction{1, 1});
     CHECK_NOTHROW(f7 - Fraction{1, 1});
 }
-*/
+
