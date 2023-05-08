@@ -97,8 +97,6 @@ using namespace std;
         return (output<<to_string(frac.numer)<<"/"<<to_string(frac.denom));
     }
 
-
-
     istream& operator>>(std::istream& input,  Fraction& frac){
         int new_nu = 0, new_de = 0;
         input>>new_nu>>new_de;
